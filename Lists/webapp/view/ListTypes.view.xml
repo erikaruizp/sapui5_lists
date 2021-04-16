@@ -12,14 +12,64 @@
                         <IconTabBar>
                             <items>
                                 <IconTabFilter text="{i18n>objectList}">
+                                    <List items="{/Products}">
+                                        <items>
+                                            <ObjectListItem title="{Material} {Brand} {Model}"
+                                                             number="{Price}"
+                                                             numberUnit="{Currency}"
+                                                             type="Detail">
+                                                <ObjectAttribute text="{Brand}"/>
+                                                <ObjectAttribute text="{Weight}"/>
+                                            </ObjectListItem>
+                                        </items>
+                                    </List>
                                 </IconTabFilter>
                                 <IconTabFilter text="{i18n>standardtList}">
+                                    <List items="{/Products}">
+                                        <items>
+                                            <StandardListItem title="{Material} {Brand} {Model}"
+                                                             info="{Price} {Currency}"
+                                                             description="{Weight}"
+                                                             type="Active">
+                                            </StandardListItem>
+                                        </items>
+                                    </List>                                
                                 </IconTabFilter>
                                 <IconTabFilter text="{i18n>inputList}">
+                                    <List items="{/Products}">
+                                        <items>
+                                            <InputListItem label="{Brand}">
+                                                <Select items="{Properties}">
+                                                    <core:Item key="{Id}" text="{Text}" />
+                                                </Select>
+                                            </InputListItem>
+                                        </items>
+                                    </List>                                  
                                 </IconTabFilter>
                                 <IconTabFilter text="{i18n>notificationList}">
+                                    <List items="{/News}">
+                                        <items>
+                                            <NotificationListItem title="{Title}"
+                                                                  description="{Description}" 
+                                                                  unread="{Unread}"
+                                                                  authorName="{Author}"
+                                                                  priority="{Priority}"
+                                                                  showCloseButton="{ShowCloseButton}"/>
+                                        </items>
+                                    </List>                                 
                                 </IconTabFilter>
                                 <IconTabFilter text="{i18n>customtList}">
+                                    <List items="{/News}">
+                                        <items>
+                                            <CustomListItem>
+                                                <layout:Grid defaultSpan="XL3 L3 M6 S12">
+                                                    <Text text="{Title}"/>
+                                                    <Text text="{Author}"/>
+                                                    <Text text="{Description}"/>
+                                                </layout:Grid>
+                                            </CustomListItem>
+                                        </items>
+                                    </List>                                   
                                 </IconTabFilter>                                                                                                                                
                             </items>
                         </IconTabBar>
