@@ -12,7 +12,12 @@
                         <IconTabBar>
                             <items>
                                 <IconTabFilter text="{i18n>objectList}">
-                                    <List items="{/Products}">
+                                    <List items="{ path: '/Products',
+                                                   filters: [{
+                                                            path: 'Brand',
+                                                            operator: 'EQ',
+                                                            value1: 'Compaq'
+                                                   }] }">
                                         <items>
                                             <ObjectListItem title="{Material} {Brand} {Model}"
                                                              number="{Price}"
@@ -25,7 +30,12 @@
                                     </List>
                                 </IconTabFilter>
                                 <IconTabFilter text="{i18n>standardtList}">
-                                    <List items="{/Products}">
+                                    <List items="{ path: '/Products',
+                                                   sorter: {path: 'Brand',
+                                                            descending: false,
+                                                            group: true},
+                                                   groupHeaderFactory: '.getGroupHeader'
+                                                    }">
                                         <items>
                                             <StandardListItem title="{Material} {Brand} {Model}"
                                                              info="{Price} {Currency}"

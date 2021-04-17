@@ -16,10 +16,22 @@ sap.ui.define([
                     oJSONModel.loadData("./localService/mockdata/ListData.json");
                     oView.setModel(oJSONModel);
                 };
+        function getGroupHeader(oGroup) {
+            var groupHeader = new sap.m.GroupHeaderListItem({
+                title: oGroup.key,
+                upperCase: true
+            });
+
+            return groupHeader;
+        };
 
         var Main = Controller.extend("logaligroup.Lists.controller.ListTypes", {});
 
         Main.prototype.onInit = onInit;                
+        Main.prototype.getGroupHeader = getGroupHeader;
+        
+        return Main;
                         
-		});
+        }
+);
 
