@@ -39,12 +39,15 @@
                                             <core:Item key="SingleSelectMaster" text="{i18n>selSingleMaster}" />
                                         </items>
                                     </Select>    
+                                    <Button text="{i18n>showSelectedItems}" press="onShowSelecItem" class="sapUiSmallMarginBegin" />
+                                    <Button text="{i18n>deleteSelectedItems}" press="onDeleteSelecItem" class="sapUiSmallMarginBegin" />
                                     <List items="{ path: '/Products',
                                                    sorter: {path: 'Brand',
                                                             descending: false,
                                                             group: true},
                                                    groupHeaderFactory: '.getGroupHeader' }"
-                                          mode="{/selectionMode}">
+                                          mode="{/selectionMode}"
+                                          id="standardList">
                                         <items>
                                             <StandardListItem title="{Material} {Brand} {Model}"
                                                              info="{Price} {Currency}"
@@ -55,7 +58,7 @@
                                     </List>                                
                                 </IconTabFilter>
                                 <IconTabFilter text="{i18n>inputList}">
-                                    <List items="{/Products}">
+                                    <List items="{/Products}" mode="Delete" delete="onDeleteRow">
                                         <items>
                                             <InputListItem label="{Brand}">
                                                 <Select items="{Properties}">
